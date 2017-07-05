@@ -20,7 +20,7 @@ setup(
     license='BSD',
 
     requires=['Django (>=1.3)'],
-    install_requires=['Django>=1.3'],
+    install_requires=['Django>=1.3', 'six'],
 
     packages=['sendfile', 'sendfile.backends'],
     package_dir={
