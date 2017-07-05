@@ -19,7 +19,7 @@ setup(
     url='https://github.com/johnsensible/django-sendfile',
     license='BSD',
 
-    requires=['Django (>=1.3)'],
+    requires=['Django (>=1.3)', 'six'],
     install_requires=['Django>=1.3', 'six'],
 
     packages=['sendfile', 'sendfile.backends'],

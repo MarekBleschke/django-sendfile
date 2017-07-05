@@ -1,7 +1,6 @@
 VERSION = (0, 3, 11)
 __version__ = '.'.join(map(str, VERSION))
 
-import six
 import os.path
 from mimetypes import guess_type
 import unicodedata
@@ -80,6 +79,11 @@ def sendfile(request, filename, attachment=False, attachment_filename=None, mime
             attachment_filename = force_text(attachment_filename)
             ascii_filename = unicodedata.normalize('NFKD', attachment_filename)
             ascii_filename = ascii_filename.encode('ascii','ignore')
+
+            # Cann't import on module level as this file is imported in
+            # setup.py.
+            import six
+
             if six.PY3:
                 ascii_filename = ascii_filename.decode()
             parts.append('filename="%s"' % ascii_filename)
